@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   host: true,
-  base: "/SimpleFoods/",
+  base: "/SimpleFoods",
   build: {
     outDir: 'dist',
   },

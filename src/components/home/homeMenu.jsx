@@ -38,8 +38,8 @@ export default function HomeMenu() {
       </div>
       <div className="md:w-[80%] w-[95%] grid md:grid-cols-4 grid-cols-2 place-items-center md:space-x-4 gap-4 md:gap-0">
         {content.map((item) => (
-          <div className="md:w-[90%] flex justify-center items-center border rounded-[12px] md:px-5 px-3 md:py-10 py-6">
-            <div className="flex flex-col items-center gap-5 " key={item.id}>
+          <div className="md:w-[90%] flex justify-center items-center border rounded-[12px] md:px-5 px-3 md:py-10 py-6" key={item.id}>
+            <div className="flex flex-col items-center gap-5 ">
               <div className="size-[60px] flex items-center justify-center bg-[#4d592b1e] rounded-full">
                 {item.icon}
               </div>

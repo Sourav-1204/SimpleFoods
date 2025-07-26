@@ -1,16 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import mainBg from "../../assets/main-bg.png";
 import { useNavigate } from "react-router-dom";
 
 export default function Hero() {
   const navigate = useNavigate();
+  const [index, setIndex] = useState(0);
+  const [fade, setFade] = useState(true);
+
+  const arr1 = [
+    "taste",
+    "cheat day",
+    "family",
+    "friends",
+    "meet up",
+    "reunion",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFade(false); // Start fade-out
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % arr1.length);
+        setFade(true);
+      }, 500);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="w-full md:h-[650px] h-[500px] relative">
       <img src={mainBg} alt="" className="md:size-full h-full object-cover" />
       <div className="absolute w-[80%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-8">
         <div className="flex flex-col items-center justify-center md:text-8xl text-5xl text-[#2C2F24]">
           <p className="my-font">Best food for</p>
-          <p className="my-font">your taste</p>
+          <p className="my-font">
+            your {" "}
+            <span
+              key={index}
+              className={`my-font text-[var(--primary-button-color)] ${
+                fade ? "fadeClass" : "fadeClass"
+              }`}
+            >
+              {arr1[index]}
+            </span>
+          </p>
         </div>
         <div className="md:w-[35%] flex items-center justify-center md:text-xl text-lg text-[#2C2F24]">
           <p className="text-center">

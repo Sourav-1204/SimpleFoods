@@ -47,6 +47,22 @@ body {
   background-color: #adb29e;
 }
 
+.fadeClass {
+  animation: fade 0.5s ease-in-out;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50%{
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .hideBtn {
   display: none;
 }
@@ -56,5 +72,11 @@ body {
     text-align: center;
     width: 90%;
     padding: 5px 10px;
+  }
+
+  .navbar a.active {
+    border-radius: 12px;
+    background-color: #adadad88;
+    transition: all 0.3s ease-in;
   }
 }

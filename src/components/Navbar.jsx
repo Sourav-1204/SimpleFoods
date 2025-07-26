@@ -33,19 +33,29 @@ function Navbar() {
         >
           <ul className="md:w-auto md:h-auto w-full flex md:flex-row flex-col items-center md:gap-3 gap-5 md:text-base text-5xl text-[var(--primary-text-color)] md:py-0 py-5 navbar">
             <NavLink to="/">
-              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">Home</p>
+              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">
+                Home
+              </p>
             </NavLink>
             <NavLink to="/menu">
-              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">Menu</p>
+              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">
+                Menu
+              </p>
             </NavLink>
             <NavLink to="/pages">
-              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">Pages</p>
+              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">
+                Pages
+              </p>
             </NavLink>
             <NavLink to="/about">
-              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">About</p>
+              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">
+                About
+              </p>
             </NavLink>
             <NavLink to="/contact">
-              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">Contact</p>
+              <p onClick={() => setMobileMenu(!mobileMenu)} className="my-font">
+                Contact
+              </p>
             </NavLink>
             <NavLink to="/book">
               <p

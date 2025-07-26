@@ -16,30 +16,37 @@ export default function Footer() {
     {
       id: "1",
       name: "Home",
+      link: "/",
     },
     {
       id: "2",
       name: "About",
+      link: "/about",
     },
     {
       id: "3",
       name: "Menu",
+      link: "/menu",
     },
     {
       id: "4",
       name: "Pricing",
+      link: "/pricing",
     },
     {
       id: "5",
       name: "Blog",
+      link: "/pages",
     },
     {
       id: "6",
       name: "Contact",
+      link: "/contact",
     },
     {
       id: "7",
       name: "Delivery",
+      link: "/delivery",
     },
   ];
 
@@ -118,9 +125,11 @@ export default function Footer() {
               </div>
               {pages.map((pageItem) => (
                 <div className="flex flex-col" key={pageItem.id}>
-                  <p className="text-[var(--fourth-text-color)]">
-                    {pageItem.name}
-                  </p>
+                  <Link to={pageItem.link}>
+                    <p className="text-[var(--fourth-text-color)]">
+                      {pageItem.name}
+                    </p>
+                  </Link>
                 </div>
               ))}
             </div>

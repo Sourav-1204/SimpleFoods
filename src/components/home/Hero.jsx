@@ -9,7 +9,6 @@ export default function Hero() {
 
   const arr1 = [
     "taste",
-    "cheat day",
     "family",
     "friends",
     "meet up",

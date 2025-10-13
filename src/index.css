@@ -33,6 +33,12 @@ body {
   background-color: #8e8e8e4c;
   transition: all 0.3s ease-in;
 }
+.navbar a:hover {
+  transform: scale(1.1);
+  border-radius: 34px;
+  background-color: #8e8e8e4c;
+  transition: all 0.2s ease-in-out;
+}
 
 .showBtn {
   display: block;
@@ -55,7 +61,7 @@ body {
   0% {
     opacity: 0;
   }
-  50%{
+  50% {
     opacity: 0.5;
   }
   100% {

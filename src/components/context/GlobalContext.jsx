@@ -42,6 +42,11 @@ export default function GlobalState({ children }) {
     }
   }
 
+  function splitString(getString) {
+    const words = getString.split(" ");
+    return words;
+  }
+
   return (
     <RecipeContext.Provider
       value={{
@@ -53,6 +58,7 @@ export default function GlobalState({ children }) {
         uniqueCategories,
         filterRecipes,
         setFilterRecipes,
+        splitString
       }}
     >
       {children}

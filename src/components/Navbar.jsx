@@ -2,18 +2,23 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { IoMenuSharp } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
+import { motion } from "framer-motion";
 
 function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(false);
 
   return (
-    <div className="w-full h-[80px] flex items-center justify-center md:sticky top-0 bg-white z-98 shadow-[0px_0px_20px_8px_#888888] relative">
+    <div className="w-full h-[80px] flex items-center justify-center md:sticky top-0 bg-white z-98 relative">
       <div className="md:w-full w-[85%] flex items-center md:justify-evenly justify-between">
         <div>
           <NavLink to="/">
-            <h1 className="md:text-4xl text-3xl font-semibold text-[var(--primary-text-color)] my-font italic">
+            <motion.h1
+              whileHover={{ scale: 1.15}}
+              transition={{ type: "spring", stiffness: 400 }}
+              className="md:text-4xl text-3xl font-semibold text-[var(--primary-text-color)] my-font italic"
+            >
               Simple Foods
-            </h1>
+            </motion.h1>
           </NavLink>
         </div>
         <div className="md:hidden ">
@@ -69,9 +74,13 @@ function Navbar() {
         </div>
         <div className="md:block hidden">
           <NavLink to="/book">
-            <button className=" px-4 py-1.5 border rounded-full text-md font-medium outline-0 active:scale-[0.9] transition-all duration-300 ease-in-out">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400 }}
+              className=" px-4 py-2 border rounded-full text-md font-medium outline-0 active:scale-[0.9] hover:bg-[var(--primary-button-color)] hover:text-white cursor-pointer"
+            >
               Book A Table
-            </button>
+            </motion.button>
           </NavLink>
         </div>
       </div>

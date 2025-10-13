@@ -9,6 +9,7 @@ import image2 from "../assets/footerimg/footerimg2.png";
 import image3 from "../assets/footerimg/footerimg3.png";
 import image4 from "../assets/footerimg/footerimg4.png";
 import { Link, useNavigate } from "react-router-dom";
+import { easeInOut, motion } from "framer-motion";
 
 export default function Footer() {
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ export default function Footer() {
           <div className="md:w-[25%] flex flex-col space-y-5">
             <div className="flex flex-col space-y-5">
               <p
-                className="italic font-semibold my-font text-white text-3xl"
+                className="italic font-semibold my-font text-white text-3xl hover:text-gray-300 transition-all duration-300 ease-in-out"
                 onClick={() => navigate("/")}
               >
                 Simple Foods
@@ -98,35 +99,53 @@ export default function Footer() {
               </p>
             </div>
             <div className="flex items-center justify-center md:justify-start gap-3">
-              <div className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer">
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer"
+              >
                 <a href="mailto:sourav123singhgmaii.com@gmail.com?subject=Let's%20Connect&body=Hi%20Sourav,%0AI'm%20interested%20in%20your%20projects.">
                   <MdEmail size="24px" />
                 </a>
-              </div>
-              <div className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer">
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer"
+              >
                 <a href="https://www.linkedin.com/in/sourav-b26b3b2b1/">
                   <FaLinkedin size="24px" />
                 </a>
-              </div>
-              <div className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer">
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer"
+              >
                 <FaInstagram size="24px" />
-              </div>
-              <div className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer">
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer"
+              >
                 <a href="https://github.com/Sourav-1204">
                   <FaGithub size="24px" />
                 </a>
-              </div>
+              </motion.div>
             </div>
           </div>
           <div className="md:w-[40%] w-full flex justify-evenly mt-10 md:mt-0">
             <div className="w-[40%] flex flex-col gap-4">
               <div>
-                <p className="text-white font-bold">Pages</p>
+                <p className="text-white font-bold hover:text-gray-300 transition-all duration-300 ease-in-out">
+                  Pages
+                </p>
               </div>
               {pages.map((pageItem) => (
                 <div className="flex flex-col" key={pageItem.id}>
                   <Link to={pageItem.link}>
-                    <p className="text-[var(--fourth-text-color)]">
+                    <p className="text-[var(--fourth-text-color)] hover:text-gray-300 transition-all duration-300 ease-in-out">
                       {pageItem.name}
                     </p>
                   </Link>
@@ -135,33 +154,57 @@ export default function Footer() {
             </div>
             <div className="w-[40%] flex flex-col gap-4">
               <div>
-                <p className="text-white font-bold">Utility Pages</p>
+                <p className="text-white font-bold hover:text-gray-300 transition-all duration-300 ease-in-out">
+                  Utility Pages
+                </p>
               </div>
               {utilityPages.map((item) => (
                 <div className="flex flex-col" key={item.id}>
-                  <p className="text-[var(--fourth-text-color)]">{item.name}</p>
+                  <p className="text-[var(--fourth-text-color)] hover:text-gray-300 transition-all duration-300 ease-in-out">
+                    {item.name}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
           <div className="md:w-[30%] flex flex-col gap-4 mt-10 md:mt-0">
             <div>
-              <p className="text-white font-bold text-center md:text-start">
+              <p className="text-white font-bold text-center md:text-start hover:text-gray-300 transition-all duration-300 ease-in-out">
                 Follow Us On Instagram
               </p>
             </div>
             <div className="w-full grid grid-cols-2 gap-5">
               <div className="md:w-full rounded-xl overflow-hidden">
-                <img src={image1} alt="image" />
+                <motion.img
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "tween", duration: 0.4, ease: easeInOut }}
+                  src={image1}
+                  alt="image"
+                />
               </div>
               <div className="md:w-full rounded-xl overflow-hidden">
-                <img src={image2} alt="image" />
+                <motion.img
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "tween", duration: 0.4, ease: easeInOut }}
+                  src={image2}
+                  alt="image"
+                />
               </div>
               <div className="md:w-full rounded-xl overflow-hidden">
-                <img src={image3} alt="image" />
+                <motion.img
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "tween", duration: 0.4, ease: easeInOut }}
+                  src={image3}
+                  alt="image"
+                />
               </div>
               <div className="md:w-full rounded-xl overflow-hidden">
-                <img src={image4} alt="image" />
+                <motion.img
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "tween", duration: 0.4, ease: easeInOut }}
+                  src={image4}
+                  alt="image"
+                />
               </div>
             </div>
           </div>

@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import image1 from "../../assets/testimonialImg/test1.jpg";
 import image2 from "../../assets/testimonialImg/test2.jpg";
 import image3 from "../../assets/testimonialImg/test3.jpg";
+import { RecipeContext } from "../context/GlobalContext";
+import { motion } from "framer-motion";
 
 export default function HomeTestimonial() {
+  const { splitString } = useContext(RecipeContext);
   const testimonialArr = [
     {
       id: "1",
@@ -37,30 +40,52 @@ export default function HomeTestimonial() {
     <div className="w-full md:h-[700px] flex justify-center items-center mt-15 md:mt-0">
       <div className="md:w-[80%] w-[90%] md:h-[500px] flex flex-col justify-between items-center">
         <div>
-          <p className="md:text-[55px] text-[40px] my-font leading-[60px] text-center">
-            What Our Customers Say
+          <p className="flex flex-wrap gap-3 md:text-[55px] text-[40px] leading-[60px] text-[var(--tirtiary-text-color)] text-center">
+            {splitString("What Our Customers Say").map((item, ind) => (
+              <motion.span
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 400 }}
+                key={ind}
+                className="my-font"
+              >
+                {item}
+              </motion.span>
+            ))}
           </p>
         </div>
         <div className="w-full h-[70%] flex md:flex-row flex-col justify-between items-center space-y-5 mt-8 md:mt-0">
           {testimonialArr.map((item) => (
-            <div className="md:w-[30%] md:h-[90%] w-[88%] flex flex-col items-start space-y-4 bg-[#f9f9f2] rounded-[12px] p-5" key={item.id}>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ backgroundColor: "#f2f2f0" }}
+              transition={{ type: "spring", stiffness: 400, duration: 0.6 }}
+              className="md:w-[30%] md:h-[90%] w-[88%] flex flex-col items-start space-y-4 bg-[#f9f9f2] rounded-[12px] p-5"
+              key={item.id}
+            >
               <div>
-                <p className="text-2xl text-[var(--primary-button-color)]">{item.heading}</p>
+                <p className="text-2xl text-[var(--primary-button-color)]">
+                  {item.heading}
+                </p>
                 <p className="italic mt-4">{item.comment}</p>
               </div>
-              <hr className="w-[90%] mx-auto text-[#d1d1d1] my-5"/>
+              <hr className="w-[90%] mx-auto text-[#d1d1d1] my-5" />
               <div className="flex items-center gap-4 mt-5">
-                <img
+                <motion.img
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                   src={item.imgUrl}
                   alt={item.name}
                   className="w-[50px] rounded-full"
                 />
                 <div>
-                  <p className="text-[20px] font-semibold">{item.name}</p>
+                  <p className="text-[20px] font-semibold hover:text-gray-600 transition-all duration-300 ease-in-out">
+                    {item.name}
+                  </p>
                   <p className="text-[16px] text-gray-500">{item.location}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

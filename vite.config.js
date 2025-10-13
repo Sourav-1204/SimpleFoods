@@ -10,4 +10,7 @@ export default defineConfig({
     outDir: 'dist',
   },
   root: ".",
+  optimizeDeps: {
+    include: ["framer-motion"],
+  },
 })

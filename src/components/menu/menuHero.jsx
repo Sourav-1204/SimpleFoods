@@ -3,6 +3,7 @@ import { RecipeContext } from "../context/GlobalContext";
 import Cards from "../pageContent/cards";
 import { useNavigate } from "react-router-dom";
 import RatingStars from "../pageContent/rating";
+import { easeInOut, motion } from "framer-motion";
 
 export default function MenuHero() {
   const {
@@ -40,26 +41,56 @@ export default function MenuHero() {
   }, [currentCategory]);
 
   return (
-    <div className="w-full flex items-center justify-center">
+    <motion.div
+      initial={{ opacity: 0, y: 150 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="w-full flex items-center justify-center"
+    >
       <div className="md:w-[80%] w-[90%] flex flex-col items-center justify-center mt-15 space-y-10">
         <div className="md:w-[50%] w-[70%] flex flex-col items-center gap-4">
           <p className="md:text-8xl text-5xl my-font text-[var(--tirtiary-text-color)]">
-            Our Menu
+            <motion.span
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400 }}
+              className="my-font inline-block"
+            >
+              Our
+            </motion.span>{" "}
+            <motion.span
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400 }}
+              className="my-font inline-block"
+            >
+              Menu
+            </motion.span>
           </p>
           <p className="md:text-lg text-center text-[#495460] font-light">
             We consider all the drivers of change gives you the components you
             need to change to create a truly happens.
           </p>
         </div>
-        <div className="md:w-[70%] md:flex grid grid-cols-2 items-center justify-between gap-5">
+        <div className="md:w-[70%] w-[95%] flex items-center justify-between overflow-x-scroll gap-5">
           {uniqueCategories && uniqueCategories.length > 0
             ? uniqueCategories.map((item, ind) => (
-                <p
-                  className={`md:w-[15%] md:px-3 px-5 py-2 rounded-full border border-[var(--fourth-text-color)] text-center cursor-pointer ${
+                <motion.p
+                  whileHover={{
+                    backgroundColor: "var(--primary-button-color)",
+                    color: "white",
+                  }}
+                  animate={
                     item === currentCategory
-                      ? "bg-[var(--primary-button-color)] text-white border-0"
-                      : null
-                  }`}
+                      ? {
+                          backgroundColor: "var(--primary-button-color)",
+                          color: "white",
+                        }
+                      : {
+                          backgroundColor: "rgba(0, 0, 0, 0)",
+                          color: "",
+                        }
+                  }
+                  transition={{ type: "tween", duration: 0.4 }}
+                  className={`md:w-[15%] md:px-3 px-5 py-2 rounded-full border border-[var(--fourth-text-color)] text-center cursor-pointer`}
                   onClick={() =>
                     setCurrentCategory(
                       currentCategory !== "" && currentCategory === item
@@ -70,7 +101,7 @@ export default function MenuHero() {
                   key={ind}
                 >
                   {item}
-                </p>
+                </motion.p>
               ))
             : null}
         </div>
@@ -78,25 +109,36 @@ export default function MenuHero() {
           {!loading && filterRecipes.length > 0 ? (
             <div className="w-full grid md:grid-cols-4 grid-cols-2 place-items-center justify-center md:gap-5 gap-3">
               {filterRecipes.slice(0, defaultView).map((item) => (
-                <div
+                <motion.div
+                  whileHover={{ boxShadow: "0px 0px 2px 8px #888888" }}
+                  transition={{ type: "tween", duration: 0.3 }}
                   className="w-full flex flex-col items-center space-y-3 rounded-lg overflow-hidden border border-[var(--fourth-text-color)]"
                   key={item.id}
                   onClick={() => handleClick(item.id)}
                 >
-                  <img src={item.image} alt={item.title + ".img"} />
+                  <motion.img
+                    whileHover={{ scale: 1.05 }}
+                    transition={{
+                      type: "tween",
+                      duration: 0.4,
+                      ease: easeInOut,
+                    }}
+                    src={item.image}
+                    alt={item.title + ".img"}
+                  />
                   <div className="w-[90%] flex flex-col space-y-1.5 pb-2 px-2">
                     <p className="md:text-xl text-lg font-semibold truncate ">
                       {item.name}
                     </p>
                     <p className="md:text-lg font-semibold text-[#54594a]">
-                      {item.mealType[0]}
+                      {currentCategory ? currentCategory : item.mealType[0]}
                     </p>
                     <div className="flex items-center gap-2">
                       <p className="md:text-lg">{item.rating}</p>
                       <RatingStars rating={item.rating} />
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           ) : (
@@ -104,17 +146,19 @@ export default function MenuHero() {
               <p className="text-7xl">Loading data! please wait...</p>
             </div>
           )}
-          <button
+          <motion.button
+            whileHover={{ backgroundColor: "#f9f9f7", color: "#000" }}
+            transition={{ type: "tween", duration: 0.3, ease: easeInOut }}
             disabled={defaultView >= filterRecipes.length}
             onClick={handleViewMore}
-            className={`md:w-[20%] w-[50%] rounded-full bg-[var(--primary-button-color)] px-5 py-3 text-white my-10 ${
+            className={`md:w-[20%] w-[50%] rounded-full bg-[var(--primary-button-color)] border px-5 py-3 text-white my-10 ${
               loading ? "hideBtn" : "showBtn"
             }`}
           >
             View More
-          </button>
+          </motion.button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

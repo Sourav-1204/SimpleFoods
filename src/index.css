@@ -20,6 +20,10 @@ body {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  @apply hidden;
+}
+
 .my-font {
   font-family: "Playfair display";
 }
@@ -33,6 +37,7 @@ body {
   background-color: #8e8e8e4c;
   transition: all 0.3s ease-in;
 }
+
 .navbar a:hover {
   transform: scale(1.1);
   border-radius: 34px;
@@ -76,7 +81,6 @@ body {
 @media screen and (max-width: 550px) {
   .navbar a {
     text-align: center;
-    width: 90%;
     padding: 5px 10px;
   }
 

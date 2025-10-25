@@ -13,7 +13,7 @@ export default function HomeContent() {
 
   return (
     <div className="w-full md:h-[700px] flex justify-center items-center mt-20 md:mt-0 bg-[#F9F9F7]">
-      <div className="md:w-[80%] w-[90%] md:h-[450px] flex md:flex-row flex-col items-center justify-center gap-5 md:gap-0">
+      <div className="md:w-[80%] w-[90%] md:h-[450px] flex md:flex-row flex-col items-center justify-center gap-5 md:gap-0 max-md:pt-5">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -74,11 +74,11 @@ export default function HomeContent() {
               </p>
             </div>
             <div className="flex flex-col items-start space-y-6">
-              <div className="flex items-center justify-start gap-5 text-xl px-5 md:px-0">
+              <div className="flex items-center justify-start gap-5 md:text-lg px-5 md:px-0">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="w-[30px] h-[30px] rounded-full text-white bg-[var(--primary-button-color)] flex items-center justify-center"
+                  className="w-[40px] h-[40px] rounded-full text-white bg-[var(--primary-button-color)] flex items-center justify-center"
                 >
                   <MdOutlineWatchLater size="16px" />
                 </motion.div>
@@ -89,11 +89,11 @@ export default function HomeContent() {
                   Delivery within 30 minutes
                 </motion.p>
               </div>
-              <div className="flex items-center justify-start gap-5 text-xl px-5 md:px-0">
+              <div className="flex items-center justify-start gap-5 md:text-lg px-5 md:px-0">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="w-[30px] h-[30px] rounded-full text-white bg-[var(--primary-button-color)] flex items-center justify-center"
+                  className="w-[40px] h-[40px] rounded-full text-white bg-[var(--primary-button-color)] flex items-center justify-center"
                 >
                   <BiSolidOffer size="16px" />
                 </motion.div>
@@ -104,11 +104,11 @@ export default function HomeContent() {
                   Best Offer & Pricess
                 </motion.p>
               </div>
-              <div className="flex items-center justify-start gap-5 text-xl px-5 md:px-0">
+              <div className="flex items-center justify-start gap-5 md:text-lg px-5 md:px-0">
                 <motion.div
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="w-[30px] h-[30px] rounded-full text-white bg-[var(--primary-button-color)] flex items-center justify-center"
+                  className="w-[40px] h-[40px] rounded-full text-white bg-[var(--primary-button-color)] flex items-center justify-center"
                 >
                   <BsCart3 size="16px" />
                 </motion.div>

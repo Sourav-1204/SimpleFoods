@@ -41,7 +41,7 @@ export default function HomeBlog() {
     <div className="w-full md:h-[1000px] flex items-center justify-center mt-15 md:mt-0 bg-[#F9F9F7]">
       <div className="md:w-[70%] w-[90%] md:h-[80%] flex flex-col justify-between py-5 md:py-0">
         <div className="w-full flex md:flex-row flex-col items-center justify-between">
-          <p className="flex flex-wrap gap-3 md:text-[55px] text-[40px] leading-[60px] text-center md:text-start">
+          <p className="flex flex-wrap gap-3 md:text-[55px] text-[40px] leading-[45px] justify-center md:text-start">
             {splitString("Our Blog & Articles").map((item, ind) => (
               <motion.span
                 whileHover={{ scale: 1.1 }}
@@ -60,7 +60,7 @@ export default function HomeBlog() {
               scale: 1.1,
             }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="rounded-full border py-3 px-4 bg-[var(--primary-button-color)] text-white mt-4 md:mt-0 active:scale-[0.9]"
+            className="rounded-full border py-3 px-4 bg-[var(--primary-button-color)] text-white mt-8 md:mt-0 active:scale-[0.9]"
             onClick={() => navigate("/pages")}
           >
             Read All Articles

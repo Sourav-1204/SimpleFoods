@@ -113,7 +113,10 @@ export default function Footer() {
                 transition={{ type: "spring", stiffness: 200 }}
                 className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer"
               >
-                <a href="https://www.linkedin.com/in/sourav-b26b3b2b1/">
+                <a
+                  href="https://www.linkedin.com/in/sourav-b26b3b2b1/"
+                  target="_blank"
+                >
                   <FaLinkedin size="24px" />
                 </a>
               </motion.div>
@@ -129,7 +132,7 @@ export default function Footer() {
                 transition={{ type: "spring", stiffness: 200 }}
                 className="flex items-center justify-center text-white size-[50px] rounded-full bg-[var(--primary-button-color)] cursor-pointer"
               >
-                <a href="https://github.com/Sourav-1204">
+                <a href="https://github.com/Sourav-1204" target="_blank">
                   <FaGithub size="24px" />
                 </a>
               </motion.div>

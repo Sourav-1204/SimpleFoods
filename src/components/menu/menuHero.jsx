@@ -110,7 +110,7 @@ export default function MenuHero() {
             <div className="w-full grid md:grid-cols-4 grid-cols-2 place-items-center justify-center md:gap-5 gap-3">
               {filterRecipes.slice(0, defaultView).map((item) => (
                 <motion.div
-                  whileHover={{ boxShadow: "0px 0px 2px 8px #888888" }}
+                  whileHover={{ boxShadow: "0px 0px 0px 14px #e1e6e7" }}
                   transition={{ type: "tween", duration: 0.3 }}
                   className="w-full flex flex-col items-center space-y-3 rounded-lg overflow-hidden border border-[var(--fourth-text-color)]"
                   key={item.id}

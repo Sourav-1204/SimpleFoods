@@ -34,11 +34,11 @@ export default function HomeService() {
     <div className="w-full md:h-[750px] flex justify-center items-center mt-10 md:mt-0">
       <div className="md:w-[70%] md:h-[80%] w-[85%] flex flex-col justify-between space-y-12">
         <div className="md:w-[50%]">
-          <p className="flex flex-wrap gap-3 md:text-[55px] text-[40px] md:leading-[60px] text-[var(--tirtiary-text-color)]">
+          <p className="flex flex-wrap gap-3 md:text-5xl text-4xl text-[var(--tirtiary-text-color)]">
             {splitString("We also offer unique services for your events").map(
               (item, ind) => (
                 <motion.span
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400 }}
                   key={ind}
                   className="my-font"
@@ -56,7 +56,7 @@ export default function HomeService() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, duration: 0.6 }}
+                transition={{ type: "tween", duration: 0.4 }}
                 src={item.thumbnail}
                 alt={item.heading + "img"}
                 className="rounded-[12px] md:size-[270px]"

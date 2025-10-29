@@ -22,7 +22,7 @@ export default function Hero() {
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
-      className="w-full md:h-[650px] h-[500px] relative"
+      className="w-full md:h-[650px] h-[500px] max-md:h-[650px] relative"
     >
       <img src={mainBg} alt="" className="md:size-full h-full object-cover" />
       <motion.div className="absolute md:w-[80%] w-[90%] top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-8">

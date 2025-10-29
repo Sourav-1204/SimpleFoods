@@ -34,12 +34,17 @@ export default function HomeMenu() {
   ];
   const arr2 = ["Browse", "Our", "Menu"];
   return (
-    <div className="w-full md:h-[600px] flex flex-col items-center justify-center gap-10 text-[var(--primary-text-color)]">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="w-full md:h-[600px] flex flex-col items-center justify-center gap-10 text-[var(--primary-text-color)]"
+    >
       <div>
-        <p className="flex flex-wrap justify-center items-center gap-6 text-6xl md:text-start mt-15 md:mt-0">
+        <p className="flex flex-wrap justify-center items-center gap-3 text-5xl md:text-start mt-15 md:mt-0">
           {arr2.map((item, ind) => (
             <motion.span
-              whileHover={{ scale: 1.15 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
               className="my-font"
               key={ind}
@@ -92,6 +97,6 @@ export default function HomeMenu() {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

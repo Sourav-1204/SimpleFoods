@@ -44,7 +44,7 @@ export default function HomeBlog() {
           <p className="flex flex-wrap gap-3 md:text-[55px] text-[40px] leading-[45px] justify-center md:text-start">
             {splitString("Our Blog & Articles").map((item, ind) => (
               <motion.span
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400 }}
                 key={ind}
                 className="my-font"
@@ -71,7 +71,7 @@ export default function HomeBlog() {
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
+              transition={{ type: "tween", duration: 0.6, ease: "easeInOut" }}
               className="w-full h-full flex flex-col items-center rounded-xl overflow-hidden gap-5 bg-white"
             >
               <div className="w-full md:h-[65%]">
@@ -101,7 +101,7 @@ export default function HomeBlog() {
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
+              transition={{ type: "tween", duration: 0.6, ease: "easeInOut" }}
               className="w-full h-full grid grid-cols-2 gap-5"
             >
               {blogContent.map((blogItem) => (

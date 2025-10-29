@@ -17,7 +17,7 @@ export default function HomeContent() {
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+          transition={{ type: "tween", duration: 0.6, ease: "easeInOut" }}
           className="md:w-[50%] flex md:gap-5 gap-2"
         >
           <div className="md:w-[55%] flex md:items-start items-center justify-center">
@@ -49,17 +49,17 @@ export default function HomeContent() {
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeInOut" }}
+          transition={{ type: "tween", duration: 0.6, ease: "easeInOut" }}
           className="md:w-[50%] flex items-center md:justify-end justify-between"
         >
           <div className="md:w-[75%] w-[95%] flex flex-col space-y-10 py-5 md:py-0">
             <div className="flex flex-col items-center space-y-4 px-5 md:px-0">
-              <p className="flex flex-wrap gap-3 md:text-[55px] text-4xl md:leading-[60px] text-[var(--tirtiary-text-color)] text-center md:text-start">
+              <p className="flex flex-wrap gap-3 md:text-5xl text-4xl text-[var(--tirtiary-text-color)] text-center md:text-start">
                 {splitString("Fastest Food Delivery in City").map(
                   (item, ind) => (
                     <motion.span
                       key={ind}
-                      whileHover={{ scale: 1.1 }}
+                      whileHover={{ scale: 1.05 }}
                       transition={{ type: "spring", stiffness: 400 }}
                       className="my-font"
                     >
@@ -101,7 +101,7 @@ export default function HomeContent() {
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 200 }}
                 >
-                  Best Offer & Pricess
+                  Best Offer & Prices
                 </motion.p>
               </div>
               <div className="flex items-center justify-start gap-5 md:text-lg px-5 md:px-0">

@@ -40,10 +40,10 @@ export default function HomeTestimonial() {
     <div className="w-full md:h-[700px] flex justify-center items-center mt-15 md:mt-0">
       <div className="md:w-[80%] w-[90%] md:h-[500px] flex flex-col justify-between items-center">
         <div>
-          <p className="flex flex-wrap gap-3 md:text-[55px] text-[40px] leading-[60px] text-[var(--tirtiary-text-color)] text-center">
+          <p className="flex flex-wrap gap-3 md:text-5xl text-4xl text-[var(--tirtiary-text-color)]">
             {splitString("What Our Customers Say").map((item, ind) => (
               <motion.span
-                whileHover={{ scale: 1.1 }}
+                whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400 }}
                 key={ind}
                 className="my-font"
@@ -59,7 +59,7 @@ export default function HomeTestimonial() {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ backgroundColor: "#f2f2f0" }}
-              transition={{ type: "spring", stiffness: 400, duration: 0.6 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
               className="md:w-[30%] md:h-[90%] w-[88%] flex flex-col items-start space-y-4 bg-[#f9f9f2] rounded-[12px] p-5"
               key={item.id}
             >

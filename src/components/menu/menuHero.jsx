@@ -3,7 +3,7 @@ import { RecipeContext } from "../context/GlobalContext";
 import Cards from "../pageContent/cards";
 import { useNavigate } from "react-router-dom";
 import RatingStars from "../pageContent/rating";
-import { easeInOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function MenuHero() {
   const {
@@ -51,16 +51,16 @@ export default function MenuHero() {
         <div className="md:w-[50%] w-[70%] flex flex-col items-center gap-4">
           <p className="md:text-8xl text-5xl my-font text-[var(--tirtiary-text-color)]">
             <motion.span
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
               className="my-font inline-block"
             >
               Our
             </motion.span>{" "}
             <motion.span
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 400 }}
-              className="my-font inline-block"
+              className="my-font inline-block text-[#C33764]"
             >
               Menu
             </motion.span>
@@ -105,14 +105,19 @@ export default function MenuHero() {
               ))
             : null}
         </div>
-        <div className="md:w-[80%] w-full flex flex-col items-center justify-center">
+        <div className="md:w-[90%] w-full flex flex-col items-center justify-center overflow-hidden">
           {!loading && filterRecipes.length > 0 ? (
-            <div className="w-full grid md:grid-cols-4 grid-cols-2 place-items-center justify-center md:gap-5 gap-3">
+            <div className="w-full grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 place-items-center rounded-tl-4xl rounded-br-4xl justify-center md:gap-5 gap-3 py-5 px-5 bg-gradient-to-r from-[#C33764] via-[#1D2671] to-[#FF512F]">
               {filterRecipes.slice(0, defaultView).map((item) => (
                 <motion.div
-                  whileHover={{ boxShadow: "0px 0px 0px 14px #e1e6e7" }}
-                  transition={{ type: "tween", duration: 0.3 }}
-                  className="w-full flex flex-col items-center space-y-3 rounded-lg overflow-hidden border border-[var(--fourth-text-color)]"
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  whileHover={{ boxShadow: "0px 0px 20px 5px #FF6B6B" }}
+                  transition={{
+                    duration: 0.6,
+                    ease: "easeInOut",
+                  }}
+                  className="w-full bg-yellow-100 flex flex-col items-center space-y-3 rounded-tl-[30px] rounded-br-[30px] overflow-hidden border border-[var(--fourth-text-color)]"
                   key={item.id}
                   onClick={() => handleClick(item.id)}
                 >
@@ -121,7 +126,7 @@ export default function MenuHero() {
                     transition={{
                       type: "tween",
                       duration: 0.4,
-                      ease: easeInOut,
+                      ease: "easeInOut",
                     }}
                     src={item.image}
                     alt={item.title + ".img"}
@@ -142,13 +147,13 @@ export default function MenuHero() {
               ))}
             </div>
           ) : (
-            <div className="w-[90%] my-10 flex items-center justify-center">
-              <p className="text-7xl">Loading data! please wait...</p>
+            <div className="w-[90%] h-[250px] my-10 flex items-center justify-center">
+              <p className="text-5xl my-font">Loading data! please wait...</p>
             </div>
           )}
           <motion.button
             whileHover={{ backgroundColor: "#f9f9f7", color: "#000" }}
-            transition={{ type: "tween", duration: 0.3, ease: easeInOut }}
+            transition={{ type: "tween", duration: 0.3, ease: "easeInOut" }}
             disabled={defaultView >= filterRecipes.length}
             onClick={handleViewMore}
             className={`md:w-[20%] w-[50%] rounded-full bg-[var(--primary-button-color)] border px-5 py-3 text-white my-10 ${

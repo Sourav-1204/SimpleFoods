@@ -12,7 +12,12 @@ export default function HomeAbout() {
   const heading = "We provide healthy food for your family.";
   const words = heading.split(" ");
   return (
-    <div className="w-full md:h-[700px] flex justify-center items-center mt-15 md:mt-0 bg-[#F9F9F7]">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeInOut" }}
+      className="w-full md:h-[700px] flex justify-center items-center mt-15 md:mt-0 bg-[#F9F9F7]"
+    >
       <div className="md:w-[80%] md:h-[70%] flex md:flex-row flex-col ml-7 md:ml-0">
         <div className="relative md:w-[50%] w-full md:h-full h-[370px] flex items-center md:justify-center">
           <motion.img
@@ -48,11 +53,11 @@ export default function HomeAbout() {
 
         <div className="md:w-[50%] w-[90%] flex md:justify-end items-center justify-center text-[#2C2F24]">
           <div className="md:w-[80%] flex flex-col gap-5 py-5 md:py-0 px-2 md:px-0">
-            <p className="md:text-[55px] text-[40px] leading-[60px]">
+            <p className="md:text-5xl text-4xl leading-12">
               {words.map((word, index) => (
                 <motion.span
                   key={index}
-                  whileHover={{ scale: 1.2 }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400 }}
                   className="inline-block cursor-pointer my-font mr-5"
                 >
@@ -85,6 +90,6 @@ export default function HomeAbout() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import image1 from "../../assets/aboutImages/hero1.png";
 import { LuMail, LuPhone } from "react-icons/lu";
 import { TfiLocationPin } from "react-icons/tfi";
+import { motion } from "framer-motion";
+import { RecipeContext } from "../context/GlobalContext";
 
 export default function AboutHero() {
+  const { splitString } = useContext(RecipeContext);
   return (
-    <div className="w-full md:h-[700px] flex justify-center items-center bg-[#F9F9F7]">
+    <motion.div
+      initial={{ opacity: 0, y: 150 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="w-full md:h-[700px] flex justify-center items-center bg-[#F9F9F7]"
+    >
       <div className="md:w-[80%] md:h-[70%] flex md:flex-row flex-col-reverse mt-15 md:mt-0">
         <div className="relative md:w-[50%] w-full h-[400px] md:h-full flex items-center md:justify-center ml-5 md:ml-0 mb-10 md:mb-0">
-          <img
+          <motion.img
+            whileHover={{ boxShadow: "0px 0px 20px 5px #aaa" }}
             src={image1}
             alt="image"
             className="md:w-full w-[80%] md:h-full rounded-xl"
           />
-          <div className="absolute md:w-[60%] w-[80%] md:h-auto h-[72%] md:top-[55%] md:left-[45%] top-[22%] left-[10%] rounded-xl text-[var(--secondary-text-color)] bg-[var(--primary-text-color)] flex flex-col justify-center gap-5 md:px-10 md:py-10 py-5 px-3">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
+            className="absolute md:w-[60%] w-[80%] md:h-auto h-[72%] md:top-[55%] md:left-[45%] top-[22%] left-[10%] rounded-xl text-[var(--secondary-text-color)] bg-[var(--primary-text-color)] flex flex-col justify-center gap-5 md:px-10 md:py-10 py-5 px-3"
+          >
             <p className="text-xl pl-2">Come and visit us</p>
             <div className="flex flex-col space-y-4 text-md pl-2">
               <div className="flex items-center gap-4">
@@ -29,13 +42,24 @@ export default function AboutHero() {
                 <p>837 W. Marshall Lane Marshalltown, IA 50158, Los Angeles</p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
         <div className="md:w-[50%] flex justify-center md:justify-end items-center">
           <div className="md:w-[80%] flex flex-col space-y-5 px-8 md:px-0 py-5 md:py-0">
             <div>
-              <p className="md:text-[55px] text-5xl my-font text-[var(--tirtiary-text-color)]">
-                We provide healthy food for your family.
+              <p className="flex flex-wrap gap-3 md:text-[55px] text-5xl my-font text-[var(--tirtiary-text-color)]">
+                {splitString("We provide healthy food for your family.").map(
+                  (item, ind) => (
+                    <motion.span
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 400 }}
+                      key={ind}
+                      className="my-font"
+                    >
+                      {item}
+                    </motion.span>
+                  )
+                )}
               </p>
             </div>
             <div>
@@ -57,6 +81,6 @@ export default function AboutHero() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

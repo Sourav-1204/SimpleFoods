@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { motion } from "framer-motion";
+import { RecipeContext } from "../context/GlobalContext";
 
 export default function Contact() {
+  const { splitString } = useContext(RecipeContext);
   return (
-    <div className="w-full flex justify-center bg-[#f9f9f7]">
+    <motion.div
+      initial={{ opacity: 0, y: 150 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="w-full flex justify-center bg-[#f9f9f7]"
+    >
       <div className="md:w-[50%] flex flex-col items-center space-y-5 mt-15">
         <div className="md:w-[65%] w-[68%] flex flex-col items-center gap-6">
-          <p className="md:text-8xl text-5xl text-[var(--tirtiary-text-color)] my-font">
-            Contact Us
+          <p className="flex flex-wrap gap-x-3 md:text-8xl text-5xl text-[var(--tirtiary-text-color)]">
+            {splitString("Contact Us").map((item, ind) => (
+              <motion.span
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 400 }}
+                key={ind}
+                className="my-font"
+              >
+                {item}
+              </motion.span>
+            ))}
           </p>
           <p className="md:text-lg text-center text-[#495460] font-light">
             We consider all the drivers of change gives you the components you
@@ -19,7 +36,8 @@ export default function Contact() {
               <p className="text-[var(--tirtiary-text-color)] font-bold">
                 Name
               </p>
-              <input
+              <motion.input
+                whileFocus={{ border: "2px solid var(--primary-button-color)" }}
                 type="text"
                 placeholder="Enter your name"
                 className="w-full rounded-full border border-[var(--fourth-text-color)] py-3 px-5 outline-0"
@@ -29,7 +47,8 @@ export default function Contact() {
               <p className="text-[var(--tirtiary-text-color)] font-bold">
                 Email
               </p>
-              <input
+              <motion.input
+                whileFocus={{ border: "2px solid var(--primary-button-color)" }}
                 type="text"
                 placeholder="Enter email address"
                 className="w-full rounded-full border border-[var(--fourth-text-color)] py-3 px-5 outline-0"
@@ -40,7 +59,8 @@ export default function Contact() {
             <p className="text-[var(--tirtiary-text-color)] font-bold">
               Subject
             </p>
-            <input
+            <motion.input
+              whileFocus={{ border: "2px solid var(--primary-button-color)" }}
               type="text"
               placeholder="Write a subject"
               className="w-full rounded-full border border-[var(--fourth-text-color)] py-3 px-5 outline-0"
@@ -50,7 +70,8 @@ export default function Contact() {
             <p className="text-[var(--tirtiary-text-color)] font-bold">
               Message
             </p>
-            <textarea
+            <motion.textarea
+              whileFocus={{ border: "2px solid var(--primary-button-color)" }}
               type="text"
               placeholder="Write your message"
               cols={4}
@@ -91,6 +112,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

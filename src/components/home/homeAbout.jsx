@@ -31,7 +31,7 @@ export default function HomeAbout() {
           <motion.div
             whileHover={{ scale: 1.05, opacity: 1 }}
             transition={{ type: "spring", stiffness: 300 }}
-            className="md:w-[60%] w-[80%] md:h-auto h-[74%] absolute md:top-[55%] md:left-[42%] top-[25%] left-[12%]  text-[var(--secondary-text-color)] bg-[var(--primary-text-color)] flex flex-col justify-center gap-5 md:px-10 md:py-10 py-7 px-5 rounded-xl"
+            className="md:w-[60%] w-[80%] md:h-auto absolute md:top-[55%] md:left-[42%] top-[25%] left-[12%]  text-[var(--secondary-text-color)] bg-[var(--primary-text-color)] flex flex-col justify-center gap-5 md:px-10 md:py-10 py-7 px-5 rounded-xl"
           >
             <p className="text-xl">Come and visit us</p>
             <div className="flex flex-col space-y-4 text-md">
